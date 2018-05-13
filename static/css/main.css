@@ -1,0 +1,421 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.form-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: #00BCD4;
+    font-family: Microsoft YaHei;
+    color: white;
+}
+
+.login {
+    width: 400px;
+    height: 405px;
+    border: white 2px solid;
+    padding: 2em;
+}
+
+.label {
+    margin-top: 0.4em;
+}
+
+.inputLogin {
+    background: transparent;
+    border: none;
+    border-bottom: white 2px solid;
+    width: 100%;
+    height: 40px;
+    margin: 15px 0;
+    color: white;
+    outline: none;
+}
+
+#loginPassword {
+    font-size: 16px;
+}
+
+.login h1 {
+    margin-bottom: 0.7em;
+}
+
+.login #index {
+    cursor: pointer;
+}
+
+.loginButton {
+    height: calc(2em + 4px);
+    line-height: 2em;
+    padding: 0 1em;
+    margin: 1em 0;
+    border: white 2px solid;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.error {
+    transition: opacity 0.3s linear;
+    opacity: 0;
+    display: block;
+    margin-top: 0em;
+    float: left;
+    color: inherit;
+}
+
+.splash {
+    background-color: #77aa77;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 2 1'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%2377aa77'/%3E%3Cstop offset='1' stop-color='%234fd'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23cf8' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23cf8' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='2' y2='2'%3E%3Cstop offset='0' stop-color='%23cf8' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23cf8' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='2' height='1'/%3E%3Cg fill-opacity='0.5'%3E%3Cpolygon fill='url(%23b)' points='0 1 0 0 2 0'/%3E%3Cpolygon fill='url(%23c)' points='2 1 2 0 0 0'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.profilePicture {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: rgba(255, 255, 255, 0.34) 15px solid;
+}
+
+.profileImage {
+    height: 350px;
+    width: 350px;
+    margin-left: -20px;
+    margin-top: -20px;
+}
+
+.welcomeText {
+    font-family: Microsoft YaHei;
+    color: white;
+    margin-top: 1em;
+}
+
+.page {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: #333;
+    overflow: auto;
+}
+
+.topBar {
+    height: 50px;
+    width: 100%;
+    background: #ed7362;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+    z-index: 100;
+    padding-right: 18px;
+}
+
+.button {
+    height: 50px;
+    color: white;
+    font-family: Microsoft YaHei;
+    padding: 0 1em;
+    line-height: 50px;
+    cursor: pointer;
+    transition: background-color 0.16s linear;
+}
+
+.plain {
+    cursor: default;
+}
+
+.button:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+#userLabel {
+    margin-right: auto;
+}
+
+.content {
+    display: flex;
+    flex-flow: row wrap;
+    height: calc(100% - 50px);
+    position: relative;
+    top: 50px;
+}
+
+.main {
+    /* background: #EEE; */
+    order: 2;
+    color: #333;
+    font-family: Microsoft YaHei;
+    /*flex: 5 0 !important;*/
+    flex: 10 10 800px;
+}
+
+.left {
+    order: 1;
+    padding: 20px;
+    /*flex: 1 auto;*/
+    flex: 1 1 290px;
+    position: relative;
+}
+
+.page h1 {
+    font-family: Microsoft YaHei;
+    color: white;
+}
+
+.page h2 {
+    font-family: Microsoft YaHei;
+}
+
+.page a {
+    color: #333;
+}
+
+.page p {
+    margin: 1.5em 0;
+}
+
+/*
+.feedItem {
+    height: 120px;
+    font-family: Microsoft YaHei;
+    color: white;
+    background: #FF5722;
+    margin: 1em 0;
+    cursor: default;
+    transition: transform 0.3s ease-out;
+    font-size: 0.85em;
+}
+
+.feedItem:hover {
+    transform: scale(1.05);
+}
+
+.feedItem .id {
+    position: relative;
+    float: left;
+    top: 10px;
+    left: 10px;
+}
+
+.feedItem .time {
+    position: relative;
+    float: right;
+    top: 10px;
+    right: 10px;
+}
+
+.feedItem .content {
+    position: relative;
+    float: left;
+    margin-top: 20px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+}
+
+.feedPic {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin: 10px 15px 0 10px;
+}
+
+.feedDetailsPane {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #222;
+    z-index: 1;
+    transform: translate3d(-100%, 0, 0);
+    transition: transform 0.5s ease-in-out;
+    color: white;
+}
+
+.feedOpening {
+    transform: translate3d(0, 0, 0) !important;
+}
+
+.feedDetailsHead {
+    height: 170px;
+    background-color: #ff5722;
+    position: relative;
+}
+
+.feedDetailsTitle {
+    position: absolute;
+    bottom: 0;
+    padding: 0.5em;
+}
+
+.feedDetailsBody {
+    padding: 1em;
+    font-family: Microsoft YaHei;
+    line-height: 1.3;
+    font-size: 17px;
+}
+
+.bannerWrapper {
+    width: 100%;
+    height: 15vmax;
+    overflow: hidden;
+    position: relative;
+}
+
+.banner {
+    width: 102%;
+    margin-top: calc(-15vmax + 3vmin);
+    margin-left: -1%;
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+}
+
+.bannerProfileWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+.userSpecific {
+    display: flex;
+    flex-flow: row wrap;
+    position: relative;
+}
+
+.userText {
+    flex: 4 4 400px;
+    padding-top: 3em;
+}
+
+.userActions {
+    flex: 1 1 180px;
+    ;
+    display: flex;
+    flex-direction: column;
+    background: #333;
+    height: 100%;
+}
+
+.padder {
+    padding: 1.5em;
+}
+*/
+
+.circle-in {
+    animation-name: circle-in;
+}
+
+.fade {
+    animation: fade 0.8s ease-out forwards;
+}
+
+.to-top {
+    animation-name: to-top;
+}
+
+.bottom-out {
+    animation: bottom-out 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+.zoom-in {
+    transform: translateZ(0) scale(0.8);
+    animation: zoom-in 0.8s 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+@keyframes circle-in {
+    0% {
+        -webkit-clip-path: circle(0 at center);
+        clip-path: circle(0 at center);
+    }
+    100% {
+        -webkit-clip-path: circle(100% at center);
+        clip-path: circle(100% at center);
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+@keyframes to-top {
+    0% {
+        -webkit-clip-path: none;
+        clip-path: none;
+        height: 100%;
+    }
+    60% {
+        height: 40px;
+        opacity: 1;
+    }
+    100% {
+        -webkit-clip-path: none;
+        clip-path: none;
+        height: 50px;
+        opacity: 0;
+    }
+}
+
+@keyframes bottom-out {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(0, 100%, 0);
+    }
+}
+
+@keyframes zoom-in {
+    0% {
+        transform: translateZ(0) scale(0.8);
+    }
+    100% {
+        transform: translateZ(0) scale(1);
+    }
+}
+
+@media(max-width: 1200px) and (min-width: 1001px) {
+    .userActions {
+        flex: 0 0 100%;
+    }
+    .main {
+        flex: 5 10 600px;
+    }
+}
+
+@media(max-width: 1000px) {
+    .left {
+        order: 2;
+        flex: 1 100%;
+    }
+}
+
+@media(max-width: 720px) {
+    .userActions {
+        flex: 0 0 100%;
+    }
+}

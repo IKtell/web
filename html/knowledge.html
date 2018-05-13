@@ -1,0 +1,172 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>爱学i问 选择角色</title>
+    <script type="text/javascript" src="../static/js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="../static/js/main.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+    <link href="../static/css/main.css" rel="stylesheet" type="text/css">
+    <link href="../static/pics/favicon.ico" rel="icon" type="image/x-icon">
+</head>
+
+<body>
+    <div class="form-wrap">
+        <div class="login">
+            <h1>爱学i问 登录</h1>
+            <label for="loginName">学号</label>
+            <input type="text" class="inputLogin" id="loginName">
+            <label for="loginPassword">密码</label>
+            <input type="password" class="inputLogin" id="loginPassword">
+            <div style="float: right">
+                <div class="loginButton">登录</div>
+            </div>
+            <span class="error"></span>
+        </div>
+    </div>
+    <div class="page">
+        <div class="topBar">
+            <div class="button plain" style="margin-right: auto;">选择角色</div>
+            <div class="button plain">{{.StudentID}}</div>
+            <div class="button skill">专业技能点</div>
+            <div class="button logoutButton">退出</div>
+        </div>
+        <div class="main">
+            <div class="main">
+                <div>
+                    <div id="container" style="width: 90vw;height: 100%"></div>
+                    <!-- <img class="profileImage" style="margin: 50px" src="../static/pics/boy3.png" alt="Profile Picture" />
+                    <h1>科研大佬</h1> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="splash" style="display: none">
+        <div class="profilePicture intro">
+            <img class="profileImage" src="../static/pics/logo.jpg" alt="Profile Picture" />
+        </div>
+        <div class="welcome intro">
+            <h1 class="welcomeText">Welcome,
+                <span class="welcomeName"></span>
+            </h1>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<style>
+    h1 {
+        color: #eee !important;
+    }
+    a {
+        text-decoration: none;
+    }
+    .profileImage {
+        height: 240px;
+        width: 240px;
+        margin-left: -25px;
+        margin-top: -20px;
+        flex: 1;
+    }
+    .main {
+        justify-content:center;
+        margin: auto;
+        text-align: center;
+        display: flex;
+        min-height: 110vh;
+        position: relative;
+        padding-top: 5vh;
+        background-color: #ffffff;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='100%25' gradientTransform='rotate(240)'%3E%3Cstop offset='0' stop-color='%23ffffff'/%3E%3Cstop offset='1' stop-color='%234FE'/%3E%3C/linearGradient%3E%3Cpattern patternUnits='userSpaceOnUse' id='b' width='540' height='450' x='0' y='0' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='0.1'%3E%3Cpolygon fill='%23444' points='90 150 0 300 180 300'/%3E%3Cpolygon points='90 150 180 0 0 0'/%3E%3Cpolygon fill='%23AAA' points='270 150 360 0 180 0'/%3E%3Cpolygon fill='%23DDD' points='450 150 360 300 540 300'/%3E%3Cpolygon fill='%23999' points='450 150 540 0 360 0'/%3E%3Cpolygon points='630 150 540 300 720 300'/%3E%3Cpolygon fill='%23DDD' points='630 150 720 0 540 0'/%3E%3Cpolygon fill='%23444' points='810 150 720 300 900 300'/%3E%3Cpolygon fill='%23FFF' points='810 150 900 0 720 0'/%3E%3Cpolygon fill='%23DDD' points='990 150 900 300 1080 300'/%3E%3Cpolygon fill='%23444' points='990 150 1080 0 900 0'/%3E%3Cpolygon fill='%23DDD' points='90 450 0 600 180 600'/%3E%3Cpolygon points='90 450 180 300 0 300'/%3E%3Cpolygon fill='%23666' points='270 450 180 600 360 600'/%3E%3Cpolygon fill='%23AAA' points='270 450 360 300 180 300'/%3E%3Cpolygon fill='%23DDD' points='450 450 360 600 540 600'/%3E%3Cpolygon fill='%23999' points='450 450 540 300 360 300'/%3E%3Cpolygon fill='%23999' points='630 450 540 600 720 600'/%3E%3Cpolygon fill='%23FFF' points='630 450 720 300 540 300'/%3E%3Cpolygon points='810 450 720 600 900 600'/%3E%3Cpolygon fill='%23DDD' points='810 450 900 300 720 300'/%3E%3Cpolygon fill='%23AAA' points='990 450 900 600 1080 600'/%3E%3Cpolygon fill='%23444' points='990 450 1080 300 900 300'/%3E%3Cpolygon fill='%23222' points='90 750 0 900 180 900'/%3E%3Cpolygon points='270 750 180 900 360 900'/%3E%3Cpolygon fill='%23DDD' points='270 750 360 600 180 600'/%3E%3Cpolygon points='450 750 540 600 360 600'/%3E%3Cpolygon points='630 750 540 900 720 900'/%3E%3Cpolygon fill='%23444' points='630 750 720 600 540 600'/%3E%3Cpolygon fill='%23AAA' points='810 750 720 900 900 900'/%3E%3Cpolygon fill='%23666' points='810 750 900 600 720 600'/%3E%3Cpolygon fill='%23999' points='990 750 900 900 1080 900'/%3E%3Cpolygon fill='%23999' points='180 0 90 150 270 150'/%3E%3Cpolygon fill='%23444' points='360 0 270 150 450 150'/%3E%3Cpolygon fill='%23FFF' points='540 0 450 150 630 150'/%3E%3Cpolygon points='900 0 810 150 990 150'/%3E%3Cpolygon fill='%23222' points='0 300 -90 450 90 450'/%3E%3Cpolygon fill='%23FFF' points='0 300 90 150 -90 150'/%3E%3Cpolygon fill='%23FFF' points='180 300 90 450 270 450'/%3E%3Cpolygon fill='%23666' points='180 300 270 150 90 150'/%3E%3Cpolygon fill='%23222' points='360 300 270 450 450 450'/%3E%3Cpolygon fill='%23FFF' points='360 300 450 150 270 150'/%3E%3Cpolygon fill='%23444' points='540 300 450 450 630 450'/%3E%3Cpolygon fill='%23222' points='540 300 630 150 450 150'/%3E%3Cpolygon fill='%23AAA' points='720 300 630 450 810 450'/%3E%3Cpolygon fill='%23666' points='720 300 810 150 630 150'/%3E%3Cpolygon fill='%23FFF' points='900 300 810 450 990 450'/%3E%3Cpolygon fill='%23999' points='900 300 990 150 810 150'/%3E%3Cpolygon points='0 600 -90 750 90 750'/%3E%3Cpolygon fill='%23666' points='0 600 90 450 -90 450'/%3E%3Cpolygon fill='%23AAA' points='180 600 90 750 270 750'/%3E%3Cpolygon fill='%23444' points='180 600 270 450 90 450'/%3E%3Cpolygon fill='%23444' points='360 600 270 750 450 750'/%3E%3Cpolygon fill='%23999' points='360 600 450 450 270 450'/%3E%3Cpolygon fill='%23666' points='540 600 630 450 450 450'/%3E%3Cpolygon fill='%23222' points='720 600 630 750 810 750'/%3E%3Cpolygon fill='%23FFF' points='900 600 810 750 990 750'/%3E%3Cpolygon fill='%23222' points='900 600 990 450 810 450'/%3E%3Cpolygon fill='%23DDD' points='0 900 90 750 -90 750'/%3E%3Cpolygon fill='%23444' points='180 900 270 750 90 750'/%3E%3Cpolygon fill='%23FFF' points='360 900 450 750 270 750'/%3E%3Cpolygon fill='%23AAA' points='540 900 630 750 450 750'/%3E%3Cpolygon fill='%23FFF' points='720 900 810 750 630 750'/%3E%3Cpolygon fill='%23222' points='900 900 990 750 810 750'/%3E%3Cpolygon fill='%23222' points='1080 300 990 450 1170 450'/%3E%3Cpolygon fill='%23FFF' points='1080 300 1170 150 990 150'/%3E%3Cpolygon points='1080 600 990 750 1170 750'/%3E%3Cpolygon fill='%23666' points='1080 600 1170 450 990 450'/%3E%3Cpolygon fill='%23DDD' points='1080 900 1170 750 990 750'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect x='0' y='0' fill='url(%23b)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+    }
+    .topBar {
+        background:#ed7362;
+    }
+</style>
+
+<script>
+    // dom1
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    var app = {};
+    option = null;
+    myChart.showLoading();
+    $.get('/static/data/les-miserables.gexf', function (xml) {
+    myChart.hideLoading();
+
+    var graph = echarts.dataTool.gexf.parse(xml);
+    var categories = [];
+    categories[0] = {name:"C++"};
+    categories[1] = {name:"数据结构"};
+    categories[2] = {name:"算法"};
+    categories[3] = {name:"JAVA"};
+    categories[4] = {name:"计算机组成原理"};
+    categories[5] = {name:"计算机网络"};
+    categories[6] = {name:"机器学习"};
+    categories[7] = {name:"C#"};
+    categories[8] = {name:"信息安全"};
+    graph.nodes.forEach(function (node) {
+        node.itemStyle = null;
+        node.symbolSize = 10;
+        node.value = node.symbolSize;
+        node.category = node.attributes.modularity_class;
+        // Use random x, y
+        node.x = node.y = null;
+        node.draggable = true;
+    });
+    option = {
+        title: {
+            text: 'Les Miserables',
+            subtext: 'Default layout',
+            top: 'bottom',
+            left: 'right'
+        },
+        tooltip: {},
+        legend: [{
+            // selectedMode: 'single',
+            data: categories.map(function (a) {
+                return a.name;
+            })
+        }],
+        animation: false,
+        series : [
+            {
+                name: 'Les Miserables',
+                type: 'graph',
+                layout: 'force',
+                data: graph.nodes,
+                links: graph.links,
+                categories: categories,
+                roam: true,
+                label: {
+                    normal: {
+                        position: 'right'
+                    }
+                },
+                force: {
+                    repulsion: 100
+                }
+            }
+        ]
+    };
+
+    myChart.setOption(option);
+}, 'xml');
+</script>
